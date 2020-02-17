@@ -36,8 +36,7 @@ def get_next_open_row(board, col):
 		if board[r][col] == 0:
 			return r
 
-def print_board(board):
-	print(np.flip(board, 0))
+
 
 def winning_move(board, piece):
 	# Check horizontal locations for win
@@ -203,7 +202,6 @@ def draw_board(board):
 	pygame.display.update()
 
 board = create_board()
-print_board(board)
 game_over = False
 
 pygame.init()
@@ -241,7 +239,6 @@ while not game_over:
 
 		if event.type == pygame.MOUSEBUTTONDOWN:
 			pygame.draw.rect(screen, BLACK, (0,0, width, SQUARESIZE))
-			#print(event.pos)
 			# Ask for Player 1 Input
 			if turn == PLAYER:
 				posx = event.pos[0]
@@ -259,7 +256,6 @@ while not game_over:
 					turn += 1
 					turn = turn % 2
 
-					print_board(board)
 					draw_board(board)
 
 
@@ -280,7 +276,6 @@ while not game_over:
 				screen.blit(label, (40,10))
 				game_over = True
 
-			print_board(board)
 			draw_board(board)
 
 			turn += 1
